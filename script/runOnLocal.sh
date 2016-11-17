@@ -8,7 +8,7 @@ model=$5
 
 source /home/garillot/ilcsoft/v01-17-08/init_ilcsoft.sh
 
-export SIMPATH=/home/garillot/SDHCALSim2/bin/SDHCALSim
+export SIMEXE=/home/garillot/SDHCALSim2/bin/SDHCALSim
 
 source /home/garillot/SDHCALSim2/script/run.sh ${particle} ${energy} ${nevent} ${seed} ${model}
 

@@ -19,7 +19,7 @@ class SDHCALRPC
 {
 	public :
 		SDHCALRPC(G4int _id , G4int _nPadX , G4int _nPadY, G4double _cellSize) ;
-		~SDHCALRPC() ;
+		virtual ~SDHCALRPC() ;
 
 		G4LogicalVolume* getLogicRPC() { return logicRPC ; }
 		G4VPhysicalVolume* getPhysicRPC() { return physicRPC ; }
@@ -52,8 +52,10 @@ class SDHCALRPC
 	protected :
 		static std::set<SDHCALRPC*> allTheRPC ;
 
-		void getMaterials() ;
-		void build() ;
+		SDHCALRPC() { ; } //Just for derived class
+
+		virtual void getMaterials() ;
+		virtual void build() ;
 
 		G4String name ;
 

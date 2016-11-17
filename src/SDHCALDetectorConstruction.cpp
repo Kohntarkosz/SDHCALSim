@@ -13,13 +13,15 @@
 
 #include "SDHCALMaterials.h"
 #include "SDHCALRPC.h"
+#include "SDHCALRPCWithScintillator.h"
 
 
 G4double SDHCALDetectorConstruction::sizeX ;
 G4double SDHCALDetectorConstruction::sizeZ ;
 
-SDHCALDetectorConstruction::SDHCALDetectorConstruction()
+SDHCALDetectorConstruction::SDHCALDetectorConstruction(RPCType _rpcType)
 {
+	rpcType = _rpcType ;
 }
 
 SDHCALDetectorConstruction::~SDHCALDetectorConstruction()
@@ -52,7 +54,12 @@ G4VPhysicalVolume* SDHCALDetectorConstruction::Construct()
 
 	std::vector<SDHCALRPC*> rpcVec ;
 	for ( G4int i = 0 ; i < nLayers ; ++i )
-		rpcVec.push_back( new SDHCALRPC(i , nPadX , nPadY , padSize) ) ;
+	{
+		if ( rpcType == kNormalRPC )
+			rpcVec.push_back( new SDHCALRPC(i , nPadX , nPadY , padSize) ) ;
+		else if ( rpcType == kWithScintillatorRPC )
+			rpcVec.push_back( new SDHCALRPCWithScintillator(i , nPadX , nPadY , padSize) ) ;
+	}
 
 	G4double RPCSizeZ = rpcVec.at(0)->getSizeZ() ;
 

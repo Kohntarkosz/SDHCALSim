@@ -9,6 +9,8 @@ version=$6
 
 source /gridgroup/ilc/garillot/SDHCALSim/script/loadG4Version.sh ${version}
 
+export SIMEXE=${SIMDIR}/SDHCALSim
+
 source /gridgroup/ilc/garillot/SDHCALSim/script/run.sh ${particle} ${energy} ${nevent} ${seed} ${model}
 
 source /gridgroup/ilc/garillot/SDHCALSim/script/uploadFilesToGrid.sh single_${particle}_${energy}GeV_I${seed} /grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}

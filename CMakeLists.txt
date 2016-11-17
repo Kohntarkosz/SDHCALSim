@@ -56,15 +56,19 @@ file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.h)
 
 SET (SDHCALSim ${PROJECT_SOURCE_DIR}/src/SDHCALSim.cxx)
+SET (SDHCALSimWithScintillator ${PROJECT_SOURCE_DIR}/src/SDHCALSimWithScintillator.cxx)
 
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
 add_executable(SDHCALSim ${SDHCALSim} ${sources} ${headers})
+add_executable(SDHCALSimWithScintillator ${SDHCALSimWithScintillator} ${sources} ${headers})
 #
 target_link_libraries(SDHCALSim ${Geant4_LIBRARIES} ${EXTRA_LIB})
+target_link_libraries(SDHCALSimWithScintillator ${Geant4_LIBRARIES} ${EXTRA_LIB})
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS SDHCALSim DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+install(TARGETS SDHCALSimWithScintillator DESTINATION ${PROJECT_SOURCE_DIR}/bin)

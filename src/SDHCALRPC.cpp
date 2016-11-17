@@ -29,7 +29,7 @@
 
 std::set<SDHCALRPC*> SDHCALRPC::allTheRPC ;
 
-SDHCALRPC::SDHCALRPC(G4int _id , G4int _nPadX , G4int _nPadY, G4double _cellSize )
+SDHCALRPC::SDHCALRPC( G4int _id , G4int _nPadX , G4int _nPadY, G4double _cellSize )
 {
 	id = _id ;
 
@@ -53,8 +53,8 @@ SDHCALRPC::SDHCALRPC(G4int _id , G4int _nPadX , G4int _nPadY, G4double _cellSize
 	sensitiveDetector = NULL ;
 	physiGasGap = NULL ;
 
-	getMaterials() ;
-	build() ;
+	SDHCALRPC::getMaterials() ;
+	SDHCALRPC::build() ;
 
 	allTheRPC.insert(this) ;
 }

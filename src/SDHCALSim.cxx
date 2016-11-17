@@ -28,7 +28,7 @@ int main(int argc , char** argv)
 	std::string physList = "FTFP_BERT" ;
 	G4int seed = 0 ;
 
-	if ( argc == 4 )
+	if ( argc >= 4 )
 	{
 		std::cout << "SEED : " << std::atoi(argv[2]) << std::endl ;
 		std::cout << "PHYSLIST : " << std::string( argv[3] ) << std::endl ;

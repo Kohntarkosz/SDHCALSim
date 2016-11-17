@@ -4,12 +4,16 @@
 #include <G4VUserDetectorConstruction.hh>
 #include <SDHCALSteppingAction.h>
 
-
+enum RPCType
+{
+	kNormalRPC,
+	kWithScintillatorRPC
+} ;
 
 class SDHCALDetectorConstruction : public G4VUserDetectorConstruction
 {
 	public :
-		SDHCALDetectorConstruction() ;
+		SDHCALDetectorConstruction(RPCType _rpcType = kNormalRPC) ;
 		~SDHCALDetectorConstruction() ;
 
 		G4VPhysicalVolume* Construct() ;
@@ -19,6 +23,7 @@ class SDHCALDetectorConstruction : public G4VUserDetectorConstruction
 
 	protected :
 
+		RPCType rpcType ;
 
 
 } ;

@@ -47,6 +47,6 @@ cat > autorun.mac <<EOF
 
 EOF
 
-${SIMDIR}/SDHCALSim autorun.mac ${seed} ${model}
+${SIMEXE} autorun.mac ${seed} ${model}
 rm autorun.mac
 
