@@ -28,7 +28,9 @@ echo "Energy : "$energy" GeV"
 echo "Particle : "$particle
 echo "Nevent : "$nevent
 
-cat > autorun.mac <<EOF
+MACFILENAME=$$.mac
+
+cat > ${MACFILENAME} <<EOF
 
 /GunParameter/Particle $particle
 
@@ -47,6 +49,6 @@ cat > autorun.mac <<EOF
 
 EOF
 
-${SIMEXE} autorun.mac ${seed} ${model}
-rm autorun.mac
+${SIMEXE} ${MACFILENAME} ${seed} ${model}
+rm ${MACFILENAME}
 
