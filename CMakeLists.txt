@@ -48,6 +48,9 @@ ENDFOREACH()
 # Setup Geant4 include directories and compile definitions
 # Setup include directory for this project
 #
+
+ADD_DEFINITIONS( "-Wall" )
+
 include( ${Geant4_USE_FILE} )
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 
