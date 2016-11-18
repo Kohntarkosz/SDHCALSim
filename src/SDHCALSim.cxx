@@ -52,6 +52,7 @@ int main(int argc , char** argv)
 	runManager->SetUserAction( new SDHCALPrimaryGeneratorAction() ) ;
 
 	SDHCALRunAction* runAction = new SDHCALRunAction() ;
+
 	runManager->SetUserAction( runAction ) ;
 	runManager->SetUserAction( new SDHCALEventAction(runAction) ) ;
 

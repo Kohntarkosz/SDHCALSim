@@ -54,6 +54,10 @@ int main(int argc , char** argv)
 	runManager->SetUserAction( new SDHCALPrimaryGeneratorAction() ) ;
 
 	SDHCALRunAction* runAction = new SDHCALRunAction() ;
+
+	runAction->setLcioFileName( "wScintillator.slcio" ) ;
+	runAction->setRootFileName( "wScintillator.root" ) ;
+
 	runManager->SetUserAction( runAction ) ;
 	runManager->SetUserAction( new SDHCALEventAction(runAction) ) ;
 

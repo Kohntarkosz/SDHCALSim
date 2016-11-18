@@ -28,4 +28,4 @@ source /gridgroup/ilc/Arnaud/carefulUpload.sh ${filenameroot} ${location}/Contro
 
 rm ${filenameslcio}
 rm ${filenameroot}
-rm testOld.slcio
+rm Oldtest.slcio

@@ -15,4 +15,4 @@ source /home/garillot/SDHCALSim2/script/run.sh ${particle} ${energy} ${nevent} $
 mv test.slcio /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/${model}/single_${particle}_${energy}GeV_I${seed}.slcio
 mv test.root /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/${model}/ControlFiles/single_${particle}_${energy}GeV_I${seed}.root
 
-rm testOld.slcio
+rm Oldtest.slcio
