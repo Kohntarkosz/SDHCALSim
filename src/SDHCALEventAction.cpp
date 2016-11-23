@@ -39,6 +39,7 @@ void SDHCALEventAction::EndOfEventAction(const G4Event* event)
 
 	SDHCALLcioWriter* lcioWriter = runAction->getWriter() ;
 	SDHCALLcioWriter* lcioOldWriter = runAction->getOldWriter() ;
+	SDHCALRootWriter* rootWriter = SDHCALRootWriter::Instance() ;
 
 	G4HCofThisEvent* col = event->GetHCofThisEvent() ;
 
@@ -124,7 +125,7 @@ void SDHCALEventAction::EndOfEventAction(const G4Event* event)
 	G4cout << "average time : " << averageTime << G4endl ;
 
 
-	SDHCALRootWriter* rootWriter = SDHCALRootWriter::Instance() ;
+
 
 	rootWriter->setEventNumber( event->GetEventID() ) ;
 	rootWriter->setNHit( nRealHits ) ;
