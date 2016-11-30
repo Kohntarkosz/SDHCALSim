@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <Randomize.hh>
 #include <TRandom3.h>
+#include <limits>
 
 class MyRandom : public TRandom3 
 {
@@ -30,6 +31,9 @@ class MyRandom : public TRandom3
 
 			std::cout << "MyRandom initialized with seed : " << GetSeed() << std::endl ;
 			theOneTrueInstance = this ;
+
+			if ( seed == 0 )
+				SetSeed( std::numeric_limits<unsigned int>::max() ) ;
 		}
 
 		static void initInstance()

@@ -39,6 +39,7 @@ void SDHCALRootWriter::closeRootFile()
 {
 	file->cd() ;
 	tree->Write("tree") ;
+	file->Purge() ;
 	file->Close() ;
 }
 
