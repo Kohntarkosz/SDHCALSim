@@ -20,12 +20,6 @@ STORAGE_SITE=lyogrid06.in2p3.fr
 source /gridgroup/ilc/garillot/newUpload.sh ${filenameslcio} ${location}
 source /gridgroup/ilc/garillot/newUpload.sh ${filenameroot} ${location}/ControlFiles
 
-#lcg-del -a --vo calice lfn:${location}/${filename}.slcio
-#lcg-cr --vo calice -d $STORAGE_SITE file:./${filename}.slcio -l lfn:${location}/${filename}.slcio
-
-#lcg-del -a --vo calice lfn:${location}/ControlFiles/${filename}.root
-#lcg-cr --vo calice -d $STORAGE_SITE file:./${filename}.root -l lfn:${location}/ControlFiles/${filename}.root
-
 rm ${filenameslcio}
 rm ${filenameroot}
 rm Oldtest.slcio
