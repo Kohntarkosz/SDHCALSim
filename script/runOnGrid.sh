@@ -13,6 +13,26 @@ export SIMEXE=${SIMDIR}/SDHCALSim
 
 source /gridgroup/ilc/garillot/SDHCALSim/script/run.sh ${particle} ${energy} ${nevent} ${seed} ${model}
 
-source /gridgroup/ilc/garillot/SDHCALSim/script/uploadFilesToGrid.sh single_${particle}_${energy}GeV_I${seed} /grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
+
+#upload
+
+filenameslcio=single_${particle}_${energy}GeV_I${seed}.slcio
+filenameroot=single_${particle}_${energy}GeV_I${seed}.root
+
+mv test.slcio ${filenameslcio}
+mv test.root ${filenameroot}
+
+location=/grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
+
+./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}
+./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}/ControlFiles
+
+rm ${filenameslcio}
+rm ${filenameroot}
+rm test.slcio
+
+
+
+#source /gridgroup/ilc/garillot/SDHCALSim/script/uploadFilesToGrid.sh single_${particle}_${energy}GeV_I${seed} /grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
 
 

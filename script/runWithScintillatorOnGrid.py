@@ -8,7 +8,7 @@ j.name = 'Geant4'
 j.application = Executable( exe=File('/gridgroup/ilc/garillot/SDHCALSim/script/runWithScintillatorOnGrid.sh') , args=['arg1','arg2','arg3','arg4','arg5','arg6'] )
 j.backend='CREAM'
 j.backend.CE='lyogrid07.in2p3.fr:8443/cream-pbs-calice'
-j.comment = 'Geant4 sim'
+j.comment = 'Geant4 sim wScin'
 
 def frange(x, y, jump) :
     while y >= x - 1e-10 :

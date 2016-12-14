@@ -16,10 +16,6 @@ source /gridgroup/ilc/garillot/SDHCALSim/script/run.sh ${particle} ${energy} ${n
 
 #upload
 
-export LFC_HOST=grid-lfc.desy.de
-
-echo UploadFilesToGrid
-
 filenameslcio=single_${particle}_${energy}GeV_I${seed}.slcio
 filenameroot=single_${particle}_${energy}GeV_I${seed}.root
 
@@ -28,11 +24,10 @@ mv wScintillator.root ${filenameroot}
 
 location=/grid/calice/SDHCAL/garillot/SimCalorimeterHit/WithScintillator/Geant4.${version}/${model}
 
-STORAGE_SITE=lyogrid06.in2p3.fr
-
-source /gridgroup/ilc/garillot/newUpload.sh ${filenameslcio} ${location}
-source /gridgroup/ilc/garillot/newUpload.sh ${filenameroot} ${location}/ControlFiles
+./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}
+./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}/ControlFiles
 
 rm ${filenameslcio}
 rm ${filenameroot}
 rm OldwScintillator.slcio
+
