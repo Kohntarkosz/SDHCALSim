@@ -6,10 +6,10 @@ nevent=$3
 seed=$4
 model=$5
 
-GunOptionPosition=gaus     #fixed uniform gaus cosmic
+GunOptionPosition=uniform  #fixed uniform gaus cosmic
 GunPosX=0                  #0 is Calorimeter center
 GunPosY=0
-UniformDeltaPos=20         #used if GunOptionPosition == uniform
+UniformDeltaPos=500        #used if GunOptionPosition == uniform
 SigmaPos=20                #used if GunOptionPosition == gaus
 
 GunOptionMomentum=gaus     #fixed gaus
@@ -37,6 +37,7 @@ cat > ${MACFILENAME} <<EOF
 /GunParameter/PositionOption $GunOptionPosition
 /GunParameter/PositionX $GunPosX
 /GunParameter/PositionY $GunPosY
+/GunParameter/UniformDeltaPosition $UniformDeltaPos
 /GunParameter/GausSigmaPosition $SigmaPos
 
 /GunParameter/MomentumOption $GunOptionMomentum

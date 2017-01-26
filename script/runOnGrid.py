@@ -19,16 +19,16 @@ def frange(x, y, jump) :
         y -= jump
 
 
-particle=['e-']
-energy=[90,80,70,60,50,40,30,20,10,9,8,7,6,5,4,3,2,1]
+particle=['mu-']
+energy=[50]
 #energy=[10]
-model=['FTFP_BERT_HP']
-version=['9.6','10.01','10.02']
+model=['FTF_BIC']
+version=['9.6']
 
 par=[]
 
 
-args = [ [p , str(e) , 2000 , s , m , v] for p in particle for e in energy for s in range(1,11) for m in model for v in version ]
+args = [ [p , str(e) , 200000 , s , m , v] for p in particle for e in energy for s in range(1,2) for m in model for v in version ]
 for a in args :
     par.append(a)
 

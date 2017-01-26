@@ -22,7 +22,8 @@ filenameroot=single_${particle}_${energy}GeV_I${seed}.root
 mv test.slcio ${filenameslcio}
 mv test.root ${filenameroot}
 
-location=/grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
+#location=/grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
+location=/grid/calice/SDHCAL/garillot/PolyaStudies/SimCalorimeterHit
 
 ./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}
 ./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}/ControlFiles
