@@ -25,12 +25,12 @@ mv test.root ${filenameroot}
 #location=/grid/calice/SDHCAL/garillot/SimCalorimeterHit/Geant4.${version}/${model}
 location=/grid/calice/SDHCAL/garillot/PolyaStudies/SimCalorimeterHit
 
-./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}
-./gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}/ControlFiles
+/gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}
+/gridgroup/ilc/garillot/uploadOnGrid.py ${filenameslcio} ${location}/ControlFiles
 
 rm ${filenameslcio}
 rm ${filenameroot}
-rm test.slcio
+rm Oldtest.slcio
 
 
 
