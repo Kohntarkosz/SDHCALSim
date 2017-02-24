@@ -30,10 +30,11 @@ class SDHCALRPCSensitiveDetector : public G4VSensitiveDetector
 
 		inline const std::vector<OldSDHCALHit*>& getOldHitsCollection() const { return oldHitsCollection ; }
 
+		static inline const std::set<SDHCALRPCSensitiveDetector*>& getSensitiveDetectorVec() { return sensitiveDetectorVec ; }
 
-		static std::set<SDHCALRPCSensitiveDetector*> sensitiveDetectorVec ;
 
 	protected :
+		static std::set<SDHCALRPCSensitiveDetector*> sensitiveDetectorVec ;
 
 		SDHCALHitCollection* hitsCollection ;
 		std::vector<OldSDHCALHit*> oldHitsCollection ;

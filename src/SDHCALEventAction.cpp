@@ -161,7 +161,7 @@ std::vector<OldSDHCALHit*> SDHCALEventAction::linkSteps(const G4Event* event)
 {
 	std::vector<OldSDHCALHit*> hits ;
 
-	const std::set<SDHCALRPCSensitiveDetector*>& detVec = SDHCALRPCSensitiveDetector::sensitiveDetectorVec ;
+	const std::set<SDHCALRPCSensitiveDetector*>& detVec = SDHCALRPCSensitiveDetector::getSensitiveDetectorVec() ;
 
 	for ( std::set<SDHCALRPCSensitiveDetector*>::const_iterator it = detVec.begin() ; it != detVec.end() ; ++it )
 	{

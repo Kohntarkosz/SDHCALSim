@@ -8,16 +8,16 @@
 
 class MyRandom : public TRandom3 
 {
-    static MyRandom* theOneTrueInstance ;
+		static MyRandom* theOneTrueInstance ;
 
 	public :
 
 		static MyRandom* Instance()
 		{
-		    if ( !theOneTrueInstance ) 
+			if ( !theOneTrueInstance )
 				initInstance() ;
 
-		    return theOneTrueInstance ;
+			return theOneTrueInstance ;
 		}
 
 
@@ -26,14 +26,15 @@ class MyRandom : public TRandom3
 		MyRandom(unsigned int seed)
 			: TRandom3(seed)
 		{
-			if (theOneTrueInstance) 
+			if (theOneTrueInstance)
 				throw std::logic_error("MyRandom already exists") ;
 
-			std::cout << "MyRandom initialized with seed : " << GetSeed() << std::endl ;
 			theOneTrueInstance = this ;
 
 			if ( seed == 0 )
 				SetSeed( std::numeric_limits<unsigned int>::max() ) ;
+
+			std::cout << "MyRandom initialized with seed : " << GetSeed() << std::endl ;
 		}
 
 		static void initInstance()

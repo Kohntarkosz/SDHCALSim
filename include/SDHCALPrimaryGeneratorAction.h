@@ -26,6 +26,7 @@ class SDHCALPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
 		inline void setMeanPositionX(G4double position) { meanPositionX = position ; }
 		inline void setMeanPositionY(G4double position) { meanPositionY = position ; }
+		inline void setMeanPositionZ(G4double position) { meanPositionZ = position ; }
 		inline void setUniformMaxPosition(G4double maxPosition) { uniformMaxPosition = maxPosition ; }
 		inline void setSigmaPosition(G4double sigma) { sigmaPosition = sigma ; }
 
@@ -72,6 +73,7 @@ class SDHCALPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
 		G4double meanPositionX ;
 		G4double meanPositionY ;
+		G4double meanPositionZ ;
 		G4double uniformMaxPosition ; //uniform position
 		G4double sigmaPosition ; //gaussian position
 

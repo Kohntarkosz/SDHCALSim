@@ -99,6 +99,7 @@ void SDHCALPrimaryGeneratorAction::shootPosition()
 	{
 		X = meanPositionX * CLHEP::mm ;
 		Y = meanPositionY * CLHEP::mm ;
+		Z = meanPositionZ * CLHEP::mm ;
 	}
 	else if ( gunOptionPosition == G4String("uniform") )
 	{

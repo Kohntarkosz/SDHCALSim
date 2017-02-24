@@ -29,6 +29,7 @@ class SDHCALPrimaryGeneratorActionMessenger : public G4UImessenger
 		G4UIcmdWithAString* posOptionCmd ;
 		G4UIcmdWithADouble* posXCmd ;
 		G4UIcmdWithADouble* posYCmd ;
+		G4UIcmdWithADouble* posZCmd ;
 		G4UIcmdWithADouble* uniformMaxPosCmd ;
 		G4UIcmdWithADouble* sigmaPosCmd ;
 

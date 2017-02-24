@@ -38,6 +38,11 @@ SDHCALPrimaryGeneratorActionMessenger::SDHCALPrimaryGeneratorActionMessenger(SDH
 	posYCmd->SetParameterName("PositionY" , true) ;
 	posYCmd->SetDefaultValue(0) ;
 
+	posZCmd = new G4UIcmdWithADouble("/GunParameter/PositionZ" , this) ;
+	posZCmd->SetGuidance("Set Z Position") ;
+	posZCmd->SetParameterName("PositionZ" , true) ;
+	posZCmd->SetDefaultValue(-20) ;
+
 	uniformMaxPosCmd = new G4UIcmdWithADouble("/GunParameter/UniformDeltaPosition" , this) ;
 	uniformMaxPosCmd->SetGuidance("Delta position for uniform distribution (in mm)") ;
 	uniformMaxPosCmd->SetParameterName("UniformDeltaPosition" , true) ;
@@ -107,6 +112,7 @@ SDHCALPrimaryGeneratorActionMessenger::~SDHCALPrimaryGeneratorActionMessenger()
 	delete posOptionCmd ;
 	delete posXCmd ;
 	delete posYCmd ;
+	delete posZCmd ;
 	delete uniformMaxPosCmd ;
 	delete sigmaPosCmd ;
 
@@ -135,6 +141,8 @@ void SDHCALPrimaryGeneratorActionMessenger::SetNewValue(G4UIcommand* command , G
 		generator->setMeanPositionX( posXCmd->GetNewDoubleValue(value) ) ;
 	else if ( command == posYCmd )
 		generator->setMeanPositionY( posYCmd->GetNewDoubleValue(value) ) ;
+	else if ( command == posZCmd )
+		generator->setMeanPositionZ( posZCmd->GetNewDoubleValue(value) ) ;
 	else if ( command == uniformMaxPosCmd )
 		generator->setUniformMaxPosition( uniformMaxPosCmd->GetNewDoubleValue(value) ) ;
 	else if ( command == sigmaPosCmd )
