@@ -27,6 +27,7 @@ void buildSDHCALMaterials()
 
 	//316L stainless steel
 	G4double steelDensity = 8.00*CLHEP::g/CLHEP::cm3 ;
+//	G4double steelDensity = 7.4*CLHEP::g/CLHEP::cm3 ;
 	G4double fractionFe316L = 0.665 ;
 	G4double fractionCr316L = 0.170 ;
 	G4double fractionNi316L = 0.120 ;
@@ -40,6 +41,7 @@ void buildSDHCALMaterials()
 	Steel316L->AddMaterial(Mn,fractionMn316L) ;
 
 	//304L stainless steel
+	steelDensity = 7.90*CLHEP::g/CLHEP::cm3 ;
 	G4double fractionFe304L = 0.695 ;
 	G4double fractionCr304L = 0.185 ;
 	G4double fractionNi304L = 0.100 ;
@@ -114,6 +116,6 @@ void buildSDHCALMaterials()
 	G4double  RPCGazdensity = 4.13e-3*CLHEP::g/CLHEP::cm3 ;
 	G4Material* RPCGaz = new G4Material("SDHCAL_RPCGaz",RPCGazdensity,3) ;
 	RPCGaz->AddMaterial(TFE,93*CLHEP::perCent) ;
-	RPCGaz->AddMaterial(Isobutane,5*CLHEP::perCent) ;
+	RPCGaz->AddMaterial(CO2,5*CLHEP::perCent) ;
 	RPCGaz->AddMaterial(SF6,2*CLHEP::perCent) ;
 }
