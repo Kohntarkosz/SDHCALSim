@@ -41,7 +41,7 @@ void buildSDHCALMaterials()
 	Steel316L->AddMaterial(Mn,fractionMn316L) ;
 
 	//304L stainless steel
-	steelDensity = 7.90*CLHEP::g/CLHEP::cm3 ;
+	steelDensity = 8.00*CLHEP::g/CLHEP::cm3 ;
 	G4double fractionFe304L = 0.695 ;
 	G4double fractionCr304L = 0.185 ;
 	G4double fractionNi304L = 0.100 ;
