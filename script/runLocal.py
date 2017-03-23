@@ -15,19 +15,20 @@ if __name__ == '__main__' :
 
 	params = SDHCALSim.Params()
 
-	params.particle = "e-"
-	params.physicsList = "QGSP_BERT_HP"
+	params.particle = "mu-"
+	params.physicsList = "FTFP_BERT_HP"
 	params.energy = sys.argv[1]
-	params.nEvent = 4000
+	params.nEvent = 50000
 	params.seed = 0
 
 	params.momentumOption = "gaus"
-	params.sigmaMomentum = 0.15
+	params.sigmaMomentum = 0.20
 
-	params.positionOption = "gaus"
-	params.positionX = -100
-	params.positionY = 10
-	params.sigmaPos = 33 
+	params.positionOption = "uniform"
+	params.positionX = 0
+	params.positionY = 0
+	params.uniformDeltaPos = 500
+	#params.sigmaPos = 33 
 
 	SDHCALSim.launch( params )
 
@@ -35,5 +36,8 @@ if __name__ == '__main__' :
 
 	outputFile = 'single_' + params.particle + '_' + str(params.energy) + 'GeV' + '_I' + str(params.seed) 
 
-	os.system('mv test.slcio /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/' + outputFile + '.slcio')
-	os.system('mv test.root /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/ControlFiles/' + outputFile + '.root')
+	#os.system('mv test.slcio /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/' + outputFile + '.slcio')
+	#os.system('mv test.root /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/ControlFiles/' + outputFile + '.root')
+	
+	os.system('mv test.slcio /home/garillot/files/muonsForBing/' + outputFile + '.slcio')
+	os.system('mv test.root /home/garillot/files/muonsForBing/ControlFiles/' + outputFile + '.root')
