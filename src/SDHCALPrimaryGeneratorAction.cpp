@@ -226,8 +226,9 @@ void SDHCALPrimaryGeneratorAction::shootEnergy()
 void SDHCALPrimaryGeneratorAction::print() const
 {
 	G4cout << "Primary particle : " << G4endl ;
-	G4cout << "   Pos : " << primaryPos << G4endl ;
-	G4cout << "   Mom : " << primaryMom << G4endl ;
+	G4cout << "    pdgID : " << particleDefinition->GetParticleName() << std::endl ;
+	G4cout << "      Pos : " << primaryPos << G4endl ;
+	G4cout << "      Mom : " << primaryMom << G4endl ;
 	G4cout << "   Energy : " << primaryEnergy/CLHEP::GeV << " GeV" << G4endl ;
 }
 
