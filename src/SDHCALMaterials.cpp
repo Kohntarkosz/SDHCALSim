@@ -7,14 +7,17 @@ void buildSDHCALMaterials()
 {
 	G4NistManager* man = G4NistManager::Instance() ;
 
-//	G4Material* Air = man->FindOrBuildMaterial("G4_AIR") ;
-//	G4Material* Vacuum = man->FindOrBuildMaterial("G4_Galactic") ;
+	//	G4Material* Air = man->FindOrBuildMaterial("G4_AIR") ;
+	//	G4Material* Vacuum = man->FindOrBuildMaterial("G4_Galactic") ;
 
 	G4Material* Fer = man->FindOrBuildMaterial("G4_Fe") ;
 	G4Material* Cr = man->FindOrBuildMaterial("G4_Cr") ;
 	G4Material* Ni = man->FindOrBuildMaterial("G4_Ni") ;
 	G4Material* Mo = man->FindOrBuildMaterial("G4_Mo") ;
 	G4Material* Mn = man->FindOrBuildMaterial("G4_Mn") ;
+	G4Material* Si = man->FindOrBuildMaterial("G4_Si") ;
+	G4Material* Cu = man->FindOrBuildMaterial("G4_Cu") ;
+
 
 	G4double steeldensity = 7.85*CLHEP::g/CLHEP::cm3 ;
 	G4double fractionMassFe = 0.70611 ;
@@ -25,36 +28,51 @@ void buildSDHCALMaterials()
 	Steel->AddMaterial(Cr,fractionMassCr) ;
 	Steel->AddMaterial(Ni,fractionMassNi) ;
 
+
 	//316L stainless steel
-	G4double steelDensity = 8.00*CLHEP::g/CLHEP::cm3 ;
-//	G4double steelDensity = 7.4*CLHEP::g/CLHEP::cm3 ;
+	G4double steelDensity316L = 8.00*CLHEP::g/CLHEP::cm3 ;
 	G4double fractionFe316L = 0.665 ;
 	G4double fractionCr316L = 0.170 ;
 	G4double fractionNi316L = 0.120 ;
 	G4double fractionMo316L = 0.025 ;
 	G4double fractionMn316L = 0.020 ;
-	G4Material* Steel316L = new G4Material("SDHCAL_Steel316L", steelDensity, 5) ;
+	G4Material* Steel316L = new G4Material("SDHCAL_Steel316L" , steelDensity316L , 5) ;
 	Steel316L->AddMaterial(Fer,fractionFe316L) ;
 	Steel316L->AddMaterial(Cr,fractionCr316L) ;
 	Steel316L->AddMaterial(Ni,fractionNi316L) ;
 	Steel316L->AddMaterial(Mo,fractionMo316L) ;
 	Steel316L->AddMaterial(Mn,fractionMn316L) ;
 
-	//304L stainless steel
-	steelDensity = 8.00*CLHEP::g/CLHEP::cm3 ;
-	G4double fractionFe304L = 0.695 ;
-	G4double fractionCr304L = 0.185 ;
-	G4double fractionNi304L = 0.100 ;
-	G4double fractionMn304L = 0.020 ;
-	G4Material* Steel304L = new G4Material("SDHCAL_Steel304L", steelDensity, 4) ;
-	Steel304L->AddMaterial(Fer,fractionFe304L) ;
-	Steel304L->AddMaterial(Cr,fractionCr304L) ;
-	Steel304L->AddMaterial(Ni,fractionNi304L) ;
-	Steel304L->AddMaterial(Mn,fractionMn304L) ;
 
-//	G4Material* glass = man->FindOrBuildMaterial("G4_Pyrex_Glass") ;
-//	G4Material* mylar = man->FindOrBuildMaterial("G4_MYLAR") ;
-//	G4Material* graphite = man->FindOrBuildMaterial("G4_GRAPHITE") ;
+	//304L stainless steel
+	G4double steelDensity304L = 8.00*CLHEP::g/CLHEP::cm3 ;
+	G4double fractionCr304L = 0.1815 ;
+	G4double fractionNi304L = 0.0810 ;
+	G4double fractionMn304L = 0.0168 ;
+	G4double fractionSi304L = 0.0042 ;
+	G4double fractionCu304L = 0.0015 ;
+	G4double fractionMo304L = 0.0010 ;
+
+	G4double fractionFe304L = 1.0 - fractionCr304L
+							  - fractionNi304L
+							  - fractionMn304L
+							  - fractionSi304L
+							  - fractionCu304L
+							  - fractionMo304L ;
+
+	G4Material* Steel304L = new G4Material("SDHCAL_Steel304L" , steelDensity304L , 7) ;
+	Steel304L->AddMaterial(Fer, fractionFe304L) ;
+	Steel304L->AddMaterial(Cr , fractionCr304L) ;
+	Steel304L->AddMaterial(Ni , fractionNi304L) ;
+	Steel304L->AddMaterial(Mn , fractionMn304L) ;
+	Steel304L->AddMaterial(Si , fractionSi304L) ;
+	Steel304L->AddMaterial(Cu , fractionCu304L) ;
+	Steel304L->AddMaterial(Mo , fractionMo304L) ;
+
+
+	//	G4Material* glass = man->FindOrBuildMaterial("G4_Pyrex_Glass") ;
+	//	G4Material* mylar = man->FindOrBuildMaterial("G4_MYLAR") ;
+	//	G4Material* graphite = man->FindOrBuildMaterial("G4_GRAPHITE") ;
 
 	//Definition du g10
 	double a=1.01*CLHEP::g/CLHEP::mole ;

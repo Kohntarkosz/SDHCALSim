@@ -27,7 +27,6 @@ SDHCALPrimaryGeneratorAction::SDHCALPrimaryGeneratorAction()
 	particleGun = new G4ParticleGun(nParticle) ;
 
 
-
 	G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable() ;
 	G4String particleName = "pi-" ;
 	particleDefinition = particleTable->FindParticle(particleName) ;

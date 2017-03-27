@@ -50,6 +50,7 @@ class SDHCALPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 		inline const G4ThreeVector& getPrimaryPos() const { return primaryPos ; }
 		inline const G4ThreeVector& getPrimaryMom() const { return primaryMom ; }
 		inline G4double getPrimaryEnergy() const { return primaryEnergy ; }
+		inline const G4ParticleDefinition* getParticleDefinition() const { return particleDefinition ; }
 
 		void print() const ;
 

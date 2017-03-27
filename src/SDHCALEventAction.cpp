@@ -66,13 +66,17 @@ void SDHCALEventAction::EndOfEventAction(const G4Event* event)
 	G4ThreeVector primaryMom = anAction->getPrimaryMom() ;
 	G4ThreeVector primaryPos = anAction->getPrimaryPos() ;
 
-	lcioWriter->setValue("ParticleMomentum" , primaryMom ) ;
-	lcioWriter->setValue("ParticlePosition" , primaryPos ) ;
-	lcioWriter->setValue("ParticleEnergy" , primaryEnergy ) ;
+	G4int particleID = anAction->getParticleDefinition()->GetPDGEncoding() ;
 
-	lcioOldWriter->setValue("ParticleMomentum" , primaryMom ) ;
-	lcioOldWriter->setValue("ParticlePosition" , primaryPos ) ;
-	lcioOldWriter->setValue("ParticleEnergy" , primaryEnergy ) ;
+	lcioWriter->setValue("ParticleID" , particleID) ;
+	lcioWriter->setValue("ParticleMomentum" , primaryMom) ;
+	lcioWriter->setValue("ParticlePosition" , primaryPos) ;
+	lcioWriter->setValue("ParticleEnergy" , primaryEnergy) ;
+
+	lcioOldWriter->setValue("ParticleID" , particleID) ;
+	lcioOldWriter->setValue("ParticleMomentum" , primaryMom) ;
+	lcioOldWriter->setValue("ParticlePosition" , primaryPos) ;
+	lcioOldWriter->setValue("ParticleEnergy" , primaryEnergy) ;
 
 	anAction->print() ;
 	G4cout << G4endl ;
@@ -130,6 +134,7 @@ void SDHCALEventAction::EndOfEventAction(const G4Event* event)
 	rootWriter->setEventNumber( event->GetEventID() ) ;
 	rootWriter->setNHit( nRealHits ) ;
 	rootWriter->setNOldHit( nOldRealHits ) ;
+	rootWriter->setPrimaryID( particleID ) ;
 	rootWriter->setPrimaryEnergy( primaryEnergy ) ;
 	rootWriter->setPrimaryPos( primaryPos ) ;
 	rootWriter->setPrimaryMom( primaryMom ) ;

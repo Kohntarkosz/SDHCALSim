@@ -15,10 +15,15 @@ if __name__ == '__main__' :
 
 	params = SDHCALSim.Params()
 
-	params.particle = "mu-"
-	params.physicsList = "FTFP_BERT_HP"
-	params.energy = sys.argv[1]
-	params.nEvent = 50000
+	params.particle = "pi-"
+	params.physicsList = "FTF_BIC"
+
+	#params.energy = sys.argv[1]
+	params.energyDistribution = "uniform"
+	params.minEnergy = 1
+	params.maxEnergy = 20
+
+	params.nEvent = 1000
 	params.seed = 0
 
 	params.momentumOption = "gaus"
@@ -27,8 +32,8 @@ if __name__ == '__main__' :
 	params.positionOption = "uniform"
 	params.positionX = 0
 	params.positionY = 0
-	params.uniformDeltaPos = 500
-	#params.sigmaPos = 33 
+	#params.uniformDeltaPos = 500
+	params.sigmaPos = 100 
 
 	SDHCALSim.launch( params )
 
@@ -38,6 +43,6 @@ if __name__ == '__main__' :
 
 	#os.system('mv test.slcio /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/' + outputFile + '.slcio')
 	#os.system('mv test.root /home/garillot/files/local/SimCalorimeterHit/Geant4.10.01/' + params.physicsList + '/ControlFiles/' + outputFile + '.root')
-	
-	os.system('mv test.slcio /home/garillot/files/muonsForBing/' + outputFile + '.slcio')
-	os.system('mv test.root /home/garillot/files/muonsForBing/ControlFiles/' + outputFile + '.root')
+
+	#os.system('mv test.slcio /home/garillot/files/muonsForBing/' + outputFile + '.slcio')
+	#os.system('mv test.root /home/garillot/files/muonsForBing/ControlFiles/' + outputFile + '.root')
